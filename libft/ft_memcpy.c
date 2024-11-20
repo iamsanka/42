@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:56:04 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:28 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/20 13:05:09 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/20 13:05:25 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stddef.h>
 
-	i = 0;
-	while (str[i] != '\0')
+void	*ft_memcpy(void *dst, const void *src, size_t len)
+{
+	unsigned char		*dest;
+	const unsigned char	*source = src;
+
+	dest = dst;
+	while (len > 0)
 	{
-		i++;
+		*dest++ = *source++;
+		len--;
 	}
-	return (i);
+	return (dest);
 }

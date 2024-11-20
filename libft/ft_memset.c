@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:56:04 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:28 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/20 12:22:09 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/20 12:24:33 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stdlib.h>
 
-	i = 0;
-	while (str[i] != '\0')
+void	*ft_memset(void *mem, int replace, size_t len)
+{
+	unsigned char	*ptr;
+
+	ptr = mem;
+	while (len > 0)
 	{
-		i++;
+		*ptr++ = (unsigned char)replace;
+		len--;
 	}
-	return (i);
+	return (mem);
 }

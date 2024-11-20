@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:56:04 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:28 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/20 13:35:56 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/20 13:36:01 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stddef.h>
 
-	i = 0;
-	while (str[i] != '\0')
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char		*dest;
+	const char	*source = src;
+
+	dest = dst;
+	if (dest < source)
 	{
-		i++;
+		while (len--)
+		{
+			*dest++ = *source++;
+		}
 	}
-	return (i);
+	else
+	{
+		dest += len;
+		source += len;
+		while (len--)
+		{
+			*--dest = *--source;
+		}
+	}
+	return (dest);
 }

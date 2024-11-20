@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:56:04 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:28 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/20 12:38:26 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/20 12:38:32 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stddef.h>
 
-	i = 0;
-	while (str[i] != '\0')
+void	ft_bzero(void *mem, size_t len)
+{
+	unsigned char	*ptr;
+
+	ptr = mem;
+	while (len > 0)
 	{
-		i++;
+		*ptr++ = '0';
+		len--;
 	}
-	return (i);
 }
