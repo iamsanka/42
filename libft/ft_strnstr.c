@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:15:34 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/26 12:15:34 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/26 11:55:11 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 14:04:35 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const char	*last_occurrence = NULL;
+	size_t	i;
+	size_t	j;
 
-	while (*s)
+	if (!*little)
+		return ((char *)(big));
+	if (!len)
+		return (NULL);
+	i = 0;
+	while (big[i] && i < len)
 	{
-		if (*s == (char)c)
-			last_occurrence = s;
-		s++;
+		if (big[i] == little[0])
+		{
+			j = 0;
+			while (little[j] && i + j < len && little[j] == big[i + j])
+				++j;
+			if (!little[j])
+				return ((char *)(big + i));
+		}
+		++i;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurrence);
+	return (0);
 }

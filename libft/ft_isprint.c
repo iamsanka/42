@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:26:51 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:18 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/21 10:53:49 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 10:54:56 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-	{
-		return (1);
-	}
-	return (0);
+	return (c >= 32 && c <= 126);
 }

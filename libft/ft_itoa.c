@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:15:34 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/26 12:15:34 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/26 10:55:24 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:01:35 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_itoa(int n)
 {
-	const char	*last_occurrence = NULL;
+	char	buf[16];
+	long	ln;
+	size_t	i;
 
-	while (*s)
+	ln = n;
+	if (ln == 0)
+		return (ft_strdup("0"));
+	ft_bzero(buf, 16);
+	i = 15;
+	if (ln < 0)
+		ln = -ln;
+	while (ln != 0)
 	{
-		if (*s == (char)c)
-			last_occurrence = s;
-		s++;
+		buf[--i] = ln % 10 + '0';
+		ln /= 10;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurrence);
+	if (n < 0)
+		buf[--i] = '-';
+	return (ft_strdup(&buf[i]));
 }

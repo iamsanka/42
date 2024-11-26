@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:15:34 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/26 12:15:34 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/23 10:47:41 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 14:44:12 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
-	const char	*last_occurrence = NULL;
+	int	i;
+	int	sign;
+	int	result;
 
-	while (*s)
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (*s == (char)c)
-			last_occurrence = s;
-		s++;
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurrence);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }

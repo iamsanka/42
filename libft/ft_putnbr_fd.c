@@ -1,28 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:15:34 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/26 12:15:34 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/23 11:11:31 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:18:00 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+static void	itoa(int n, char *buf)
 {
-	const char	*last_occurrence = NULL;
+	long	ln;
+	size_t	i;
 
-	while (*s)
+	ln = n;
+	ft_bzero(buf, 16);
+	if (ln == 0)
 	{
-		if (*s == (char)c)
-			last_occurrence = s;
-		s++;
+		buf[15] = '0';
+		return ;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurrence);
+	i = 15;
+	if (ln < 0)
+		ln = -ln;
+	while (ln != 0)
+	{
+		buf[--i] = ln % 10 + '0';
+		ln /= 10;
+	}
+	if (n < 0)
+		buf[--i] = '-';
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	buf[16];
+	size_t	i;
+
+	itoa(n, buf);
+	i = 0;
+	while (i < 16)
+	{
+		if (buf[i])
+			ft_putchar_fd(buf[i], fd);
+		++i;
+	}
 }

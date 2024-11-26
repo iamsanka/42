@@ -5,22 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:22:09 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 12:24:33 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/23 11:08:13 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:08:13 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memset(void *mem, int replace, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 
-	ptr = mem;
-	while (len > 0)
-	{
-		*ptr++ = (unsigned char)replace;
-		len--;
-	}
-	return (mem);
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = (unsigned char)c;
+	return (s);
 }

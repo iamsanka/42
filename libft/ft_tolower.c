@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 14:41:20 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:42 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/26 12:24:47 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 12:25:09 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-	{
-		return (c - ('A' - 'a'));
-	}
+		return (c + ('a' - 'A'));
 	return (c);
 }

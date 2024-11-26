@@ -5,21 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 12:38:26 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 12:38:32 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/23 10:49:10 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 10:49:15 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	ft_bzero(void *mem, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr;
-
-	ptr = mem;
-	while (len > 0)
-	{
-		*ptr++ = '0';
-		len--;
-	}
+	ft_memset(s, 0, n);
 }

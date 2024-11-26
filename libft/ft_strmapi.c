@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:15:34 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/26 12:15:34 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/26 11:34:48 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:53:55 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	const char	*last_occurrence = NULL;
+	size_t	len;
+	size_t	i;
+	char	*p;
 
-	while (*s)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	p = ft_calloc(len + 1, sizeof(char));
+	if (!p)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (*s == (char)c)
-			last_occurrence = s;
-		s++;
+		p[i] = f(i, s[i]);
+		++i;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last_occurrence);
+	return (p);
 }

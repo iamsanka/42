@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 09:12:10 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:38:49 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/22 10:51:42 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 10:52:03 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalpha(int c)
 {
-	if ((c <= 'a' && c >= 'z') || (c <= 'A' && c >= 'Z'))
-	{
-		return (1);
-	}
-	return (0);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

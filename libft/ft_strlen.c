@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:56:04 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:28 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/24 11:33:10 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:33:10 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

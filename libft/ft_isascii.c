@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:19:53 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:39:04 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/22 10:52:08 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 10:52:31 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-	{
-		return (1);
-	}
-	return (0);
+	return (c >= 0 && c <= 127);
 }

@@ -5,23 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 13:05:09 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 13:05:25 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/22 11:04:46 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:04:46 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char		*dest;
-	const unsigned char	*source = src;
+	unsigned char		*d;
+	const unsigned char	*s = (const unsigned char *)src;
 
-	dest = dst;
-	while (len > 0)
-	{
-		*dest++ = *source++;
-		len--;
-	}
+	d = (unsigned char *)dest;
+	if (!dest && !src)
+		return (NULL);
+	while (n--)
+		*d++ = *s++;
 	return (dest);
 }

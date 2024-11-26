@@ -5,20 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 14:55:28 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:22 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/26 11:20:52 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:21:04 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *str, int c)
+#include "libft.h"
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c)
 {
-	while (*str != '\0')
+	while (*s)
 	{
-		if (*str == (char)c)
-		{
-			return ((char *)str);
-		}
-		str++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	return (0);
+	if (c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

@@ -1,42 +1,33 @@
-#include <stddef.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/24 11:32:10 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:32:10 by asanka-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
+	while (src[i])
 		i++;
+	if (size == 0)
+		return (i);
+	j = 0;
+	while (src[j] && j < size - 1)
+	{
+		dst[j] = src[j];
+		j++;
 	}
+	dst[j] = '\0';
 	return (i);
-}
-
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-    size_t i = 0;
-
-    if (dstsize > 0)
-    {
-        while (src[i] && i < dstsize - 1)
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = '\0';
-    }
-    return ft_strlen(src);
-}
-
-
-#include <stdio.h>
-
-int main()
-{
-    char dest[10]={0};
-    const char *src="Helloooooo";
-    printf("before strlcpy %s\n", dest);
-    char strlcpy_dst[10];
-    ft_strlcpy(strlcpy_dst, "Hello", 10);
-    printf("ft_strlcpy: %s\n", strlcpy_dst);
 }

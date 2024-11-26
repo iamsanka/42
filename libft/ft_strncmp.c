@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanka-w <asanka-w@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 11:37:33 by asanka-w          #+#    #+#             */
-/*   Updated: 2024/11/20 11:40:32 by asanka-w         ###   ########.fr       */
+/*   Created: 2024/11/24 11:54:30 by asanka-w          #+#    #+#             */
+/*   Updated: 2024/11/26 11:54:30 by asanka-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *str_1, const char *str_2, unsigned int size)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	while (((*str_2 != '\0') || (*str_1 != '\0')) && (i <= size))
+	while (i < n && (s1[i] || s2[i]))
 	{
-		if (str_1[i] != str_2[i])
-		{
-			return ((unsigned char)str_1[i] - (unsigned char)str_2[i]);
-		}
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
 	return (0);
